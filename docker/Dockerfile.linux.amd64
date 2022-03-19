@@ -5,7 +5,9 @@ LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>" \
   org.label-schema.vendor="Bo-Yi Wu" \
   org.label-schema.schema-version="1.0"
 
+COPY .profile /root/.profile
+COPY .ashrc /root/.ashrc
 COPY release/linux/amd64/drone-jenkins /bin/
-COPY resolv.conf /etc/resolv.conf
+RUN apk update && apk add vim
 
 ENTRYPOINT ["/bin/drone-jenkins"]
