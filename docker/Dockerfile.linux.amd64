@@ -8,6 +8,7 @@ LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>" \
 COPY .profile /root/.profile
 COPY .ashrc /root/.ashrc
 COPY release/linux/amd64/drone-jenkins /bin/
-RUN apk update && apk add vim
+RUN apk update && \
+    apk add bind-tools vim
 
 ENTRYPOINT ["/bin/drone-jenkins"]
